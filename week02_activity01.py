@@ -23,7 +23,7 @@ class CNum:
             raise ComplexDivisionByZero("complex division by 0")
         real = (self.a*o.a + self.b*o.b) / denom
         imag = (self.b*o.a - self.a*o.b) / denom
-        return CNum(real, imag)
+        return CNum(real, imag)    
 class ComplexDivisionByZero(ArithmeticError): pass
 
 def plot_vectors(vectors: Iterable["CNum"],
@@ -73,9 +73,9 @@ def plot_vectors(vectors: Iterable["CNum"],
         plt.show()
     return ax
 
-if __name__ == "__main__":
-    c1 = CNum(-2, 1)
-    c2 = CNum(1, 2)
+def maintask():
+    c1 = CNum(1, -2)
+    c2 = CNum(2, -1)
 
     sum = c1._cAdd(c2)
     dif = c1._cSub(c2)
@@ -85,5 +85,7 @@ if __name__ == "__main__":
     plot_vectors(
     [c1, c2, sum, dif, pro, quo],
     labels=["c1", "c2", "c1 + c2", "c1 - c2", "c1 * c2", "c1 / c2"],
-    title="Originals and Results"
-)
+    title="Originals and Results")
+
+if __name__ == "__main__":
+    maintask()
